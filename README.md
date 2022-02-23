@@ -22,6 +22,7 @@ For example to craft a sword, you will need to have at least one badge related t
 The whole ecosystem is composed from the 2 things.
 
 - Smart Contract(s) - data warehouse
+- Manager application - works as an experience gateway
 - Sattelite Applications - heart that moves the world
 
 ### Smart Contract
@@ -47,10 +48,41 @@ The center of the application is YOU. Each YOU has the following properties.
   - timestamp - timestamp of the measurement
   - data - data blob (probably JSON or base64 string)
 
-Now the next objects are related to tickets. Everyone can create an event, and issue a ticket series for that.
+The next set of objects is related to the events. Every user can.
 
-Finally, the last piece are crafter items. These looks like a typical NFTs.
+- Create an event (this is an abstract event, might mean reoccuring)
+- Create a tickets for that (each ticket has additional properties, including the maximum number of usages, and rank for receiving dividends)
+- Tickets can be purchased by NEAR tokens
+- Each ticket holds a number of usages.
+- If NEAR tokens are sent to the event, then they are distributed as dividends to the token holders based on the rank (any remainder remains in the contract)
+- Tickets can be sold to the other person.
+
+Finally, the last piece are crafter items. These looks like a typical NFTs. These works like a classical NFT.
+They are created by the satelite applications. And they consume the badges during the creation.
+
+### Manager Application
+
+This is the application that works as an entry point.
+**The default style is that the end user doesn't know about blockchain at all.**
+
+Main functions
+
+- See the status - summary, badges, identity, measures
+- Discover events - see what events are around
+- Discover apps - discover sattelite apps (described in the next chapter)
+- Event manager - create and manage your own events
+- Ticket market place - buy and use tickets
+- NFT marketplace - marketplace for virtual assets
 
 ### Sattelite Applications
 
-These are a bunch of applications that create, and consume the badges.
+These are the applications connected to the ecosystem.
+Each app can do a different things. Here are some examples:
+
+- Measure your body shape from photos and grant badges for that.
+- Application that realizes in person meeting.
+- Application measuring the step (i.e. walk) activity and granting badges for that.
+- Application for coach that compares the moves of students with professionals to monitor the progress. If student improves,
+- Application that tracks certain web for results of an events. If user appears in the results, then particular badges can be assigned.
+- Consume badges to craft an NTF.
+- Game that uses NFTs.
